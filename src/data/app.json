@@ -1,0 +1,16 @@
+{
+    "lightLogo": "/img/logo-light.png",
+    "darkLogo": "/img/logo-dark.png",
+    "showLoading": true,
+    "devtoUsername": "raphaelramos",
+    "blogURL": "https://raphaelramos.dev/blog/",
+    "portfolioURL": "https://raphaelramos.dev",
+    "social": {
+        "linkedin": "https://www.linkedin.com/in/raphael-r2/",
+        "github": "http://github.com/raphaelramos",
+        "twitter": "https://twitter.com/raphaelramosr2",
+        "youtube": "https://www.youtube.com/@raphaelramosr2?sub_confirmation=1",
+        "instagram": "https://www.instagram.com/raphaelfr_",
+        "devto": "https://dev.to/raphaelramos"
+    }
+}
