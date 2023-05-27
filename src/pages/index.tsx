@@ -33,7 +33,12 @@ const Home = ({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const homePageArticles = await getHomePageArticles()
+    const homePageArticles = { articles: [] }
+    if (process.env.DEVTO_APIKEY) {
+        const homePageArticles = await getHomePageArticles()
+        return { props: { homePageArticles } }
+    }
+
     return { props: { homePageArticles } }
 }
 
