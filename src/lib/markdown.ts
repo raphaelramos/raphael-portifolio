@@ -6,6 +6,7 @@ import remarkBreaks from 'remark-breaks'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import rehypeHighlight from 'rehype-highlight'
+import rehypeSlug from 'rehype-slug'
 
 export const sanitizeDevToMarkdown = (markdown: string): string => {
     let correctedMarkdown = ''
@@ -27,6 +28,7 @@ export const convertMarkdownToHtml = (markdown: string): string => {
     .use(remarkBreaks)
     .use(remarkRehype)
     .use(rehypeHighlight)
+    .use(rehypeSlug)
     .use(rehypeStringify)
     .processSync(markdown)
 
