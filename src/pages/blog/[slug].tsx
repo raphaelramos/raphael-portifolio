@@ -13,7 +13,7 @@ import BlogDetails from "../../components/Blog-details/blog-details";
 import Footer from "../../components/Footer/footer";
 import { getAllBlogArticles, getArticleFromCache } from '../../lib/devto'
 
-const cacheFile = '.dev-to-cache.json'
+const cacheFile = '.devto-articles-cache.json'
 
 interface IProps {
     article: IArticle
