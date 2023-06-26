@@ -28,8 +28,7 @@ const BlogDetails = ({ article }) => {
                                             <div className="info">
                                                 <h6>Raphael Ramos</h6>
                                                 <p>
-                                                    Desenvolvedor Sênior Full Stack, Mobile e
-                                                    especialista em Javascript.
+                                                    Desenvolvedor Sênior Full Stack e Mobile.
                                                 </p>
                                                 <p>Me acompanhe:</p>
                                                 <div className="social">
