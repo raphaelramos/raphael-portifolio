@@ -8,6 +8,7 @@ import initIsotope from "../../common/initIsotope";
 
 const WorksStyle = () => {
   const [isOpen, setOpen] = React.useState(false);
+  const [isOpen2, setOpen2] = React.useState(false);
   React.useEffect(() => {
     setTimeout(() => {
       initIsotope();
@@ -51,14 +52,12 @@ const WorksStyle = () => {
                   <h6>Front-end Cobol Modernization</h6>
                   <p>Projeto em que colaborei em todas etapas como consultor no Itaú Unibanco.</p>
                 </div>
-                {typeof window !== "undefined" && (
-                  <ModalVideo
-                    channel="youtube"
-                    isOpen={isOpen}
-                    videoId="7Q2NYQxN6KU"
-                    onClose={() => setOpen(false)}
-                  />
-                )}
+                <ModalVideo
+                  channel="youtube"
+                  isOpen={isOpen}
+                  videoId="7Q2NYQxN6KU"
+                  onClose={() => setOpen(false)}
+                />
                 <a
                   className="vid"
                   onClick={(e) => {
@@ -94,19 +93,17 @@ const WorksStyle = () => {
                   <h6>e-Igrejas</h6>
                   <p>Aplicativo para gestão de igrejas. Disponibilizei no meu GitHub.</p>
                 </div>
-                {typeof window !== "undefined" && (
-                  <ModalVideo
-                    channel="youtube"
-                    isOpen={isOpen}
-                    videoId="FOyng54s9Ig"
-                    onClose={() => setOpen(false)}
-                  />
-                )}
+                <ModalVideo
+                  channel="youtube"
+                  isOpen={isOpen2}
+                  videoId="FOyng54s9Ig"
+                  onClose={() => setOpen2(false)}
+                />
                 <a
                   className="vid"
                   onClick={(e) => {
                     e.preventDefault();
-                    setOpen(true);
+                    setOpen2(true);
                   }}
                 >
                   <Image src="/img/portfolio/eigrejas.jpg" width="460" height="345" alt="e-igrejas" />
