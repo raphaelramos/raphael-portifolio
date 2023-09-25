@@ -14,14 +14,14 @@ const Footer = () => {
               </div>
               <ul>
                 <li>
-                  <span className="icon pe-7s-map-marker"></span>
+                  <span className="icon fa-solid fa-location-dot"></span>
                   <div className="cont">
                     <h6>Localização</h6>
                     <p>Uberlândia/MG</p>
                   </div>
                 </li>
                 <li>
-                  <span className="icon pe-7s-mail"></span>
+                  <span className="icon fa-regular fa-envelope"></span>
                   <div className="cont">
                     <h6>Contato</h6>
                     <p><a href={appData.social.linkedin}>Me chama no LinkedIn</a></p>
@@ -50,7 +50,7 @@ const Footer = () => {
                   <i className="fab fa-github"></i>
                 </a>
                 <a href={appData.social.twitter}>
-                  <i className="fab fa-twitter"></i>
+                  <i className="fab fa-x-twitter"></i>
                 </a>
                 <a href={appData.social.youtube}>
                   <i className="fab fa-youtube"></i>
@@ -61,7 +61,7 @@ const Footer = () => {
               </div>
               <div className="copy-right">
                 <p>
-                  Blog e Portfólio Raphael Ramos. Desenvolvido com React e Next.js
+                  Blog e Portfólio Raphael Ramos. Desenvolvido com Next.js
                 </p>
               </div>
             </div>

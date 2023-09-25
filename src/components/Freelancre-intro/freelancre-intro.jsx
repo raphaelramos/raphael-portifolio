@@ -81,7 +81,7 @@ const FreelancreIntro = () => {
                     </div>
                     <div className="mail-icon">
                       <div className="icon-box">
-                        <span className="icon color-font pe-7s-mail"></span>
+                        <span className="icon color-font fa-regular fa-envelope"></span>
                       </div>
                     </div>
                   </div>

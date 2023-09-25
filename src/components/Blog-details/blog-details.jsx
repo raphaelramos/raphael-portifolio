@@ -39,7 +39,7 @@ const BlogDetails = ({ article }) => {
                                                         <i className="fab fa-github"></i>
                                                     </a>
                                                     <a href={appData.social.twitter}>
-                                                        <i className="fab fa-twitter"></i>
+                                                        <i className="fab fa-x-twitter"></i>
                                                     </a>
                                                     <a href={appData.social.youtube}>
                                                         <i className="fab fa-youtube"></i>
