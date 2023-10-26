@@ -43,13 +43,13 @@ const AboutUs = () => {
                 <div className="skill-item">
                   <h5 className="fz-14 mb-15">Python</h5>
                   <div className="skill-progress">
-                    <div className="progres" data-value="60%"></div>
+                    <div className="progres" data-value="100%"></div>
                   </div>
                 </div>
                 <div className="skill-item">
                   <h5 className="fz-14 mb-15">Java</h5>
                   <div className="skill-progress">
-                    <div className="progres" data-value="40%"></div>
+                    <div className="progres" data-value="100%"></div>
                   </div>
                 </div>
               </div>
