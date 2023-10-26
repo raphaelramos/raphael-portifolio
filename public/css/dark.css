@@ -6191,18 +6191,6 @@ span:hover {
   transition: all 1.5s;
 }
 
-.skills-box .skill-progress .progres:after {
-  content: attr(data-value);
-  position: absolute;
-  right: 10px;
-  top: -45px;
-  padding: 7px 15px;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.05);
-  font-size: 12px;
-  font-weight: 600;
-}
-
 .skills-box .skill-progress .progres:before {
   content: "";
   width: 0;
