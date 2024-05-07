@@ -48,6 +48,6 @@
 ## Connect with me
 <p align="left">
   <a href="https://linkedin.com/in/raphaelramosbr" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="raphael-linkedin" height="20" width="30" /></a>
-  <a href="https://twitter.com/raphaelramosbr" target="blank"><img align="center" src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg" alt="raphael-x"  height="20" /></a>
+  <a href="https://twitter.com/raphaelramosbr" target="blank"><img align="center" src="https://upload.wikimedia.org/wikipedia/commons/5/5a/X_icon_2.svg" alt="raphael-x"  height="20" /></a>
    <a href="https://www.youtube.com/@raphaelramosbr?sub_confirmation=1" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="raphael-youtube" height="20" width="30" /></a>
 </p>
