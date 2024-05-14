@@ -9,6 +9,6 @@ export const dateFormat = (dateString: string) => {
     return format(date, 'dd MMMM YYY', {locale: ptBR})
 }
 
-function isValidDate(date) {
+function isValidDate(date: Date) {
   return !Number.isNaN(date.getTime());
 }

@@ -25,25 +25,25 @@ interface IParams extends ParsedUrlQuery {
 }
 
 const ArticlePage = ({ article, publishedDate }: IProps): JSX.Element => (
-    <Layout title={article?.title} description={article?.description} imageUrl={article?.coverImage}>
-        <div className="circle-bg">
-            <div className="circle-color fixed">
-            <div className="gradient-circle"></div>
-            <div className="gradient-circle two"></div>
-            </div>
-        </div>
-        <Navbar />
-        <PageHeader
-            title={article?.title} 
-        />
-        <p className="text-center">
-            {publishedDate}
-        </p>
+  <Layout
+    title={article?.title}
+    description={article?.description}
+    imageUrl={article?.coverImage}
+  >
+    <div className="circle-bg">
+      <div className="circle-color fixed">
+        <div className="gradient-circle"></div>
+        <div className="gradient-circle two"></div>
+      </div>
+    </div>
+    <Navbar />
+    <PageHeader title={article?.title} paragraph="" />
+    <p className="text-center">{publishedDate}</p>
 
-        <BlogDetails article={article} />
-        <Footer />
-    </Layout>
-)
+    <BlogDetails article={article} />
+    <Footer />
+  </Layout>
+);
 
 export const getStaticProps: GetStaticProps = async (context) => {
     const { slug } = context.params as IParams
