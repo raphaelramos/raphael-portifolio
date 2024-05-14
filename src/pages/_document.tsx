@@ -1,9 +1,15 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+} from "next/document";
 import Script from "next/script";
-const GTM_ID = 'GTM-5MLS8J3'
+const GTM_ID = "GTM-5MLS8J3";
 
 class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
     return {
       ...initialProps,
@@ -13,15 +19,16 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head>
-          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          <meta
-            name="description"
-            content="Portifólio do Desenvolvedor Raphael Ramos. Node, Angular, React e mais"
-          />
-          <meta name="author" content="" />
-          <link rel="shortcut icon" href="/img/favicon.ico" />
-        </Head>
+        <Head />
+        <title>Raphael Ramos</title>
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="description"
+          content="Portifólio do Desenvolvedor Raphael Ramos. Node, Angular, React e mais"
+        />
+        <meta name="author" content="Raphael Ramos" />
+        <link rel="shortcut icon" href="/img/favicon.ico" />
+        <link rel="manifest" href="/manifest.webmanifest"></link>
 
         <body>
           <Main />
