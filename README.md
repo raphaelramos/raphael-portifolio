@@ -27,7 +27,7 @@
   npm install
 ```
 
-### Start developing
+### Run development
 
 ```bash
   npm run dev
@@ -35,7 +35,7 @@
 
 ### Dev.to integrate
 - Create [API Key](https://dev.to/settings/extensions)
-- Copy .env.example as .env.local and put the key in `DEVTO_APIKEY`
+- Copy .env.example as .env and put the key in `DEVTO_APIKEY`
 
 ## Documentation
  
