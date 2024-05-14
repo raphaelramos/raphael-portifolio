@@ -16,7 +16,12 @@ const AboutUs = () => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-lg-6 img md-mb50">
-            <Image src="/img/intro/developer.jpg" width="929" height="929" alt="Raphael Ramos" />
+            <Image
+              src="/img/intro/developer.jpg"
+              width="929"
+              height="929"
+              alt="Raphael Ramos"
+            />
           </div>
           <div className="col-lg-5 valign">
             <div className="cont full-width">
@@ -25,7 +30,8 @@ const AboutUs = () => {
                 Eu codifico para Web e Mobile apps
               </h5>
               <p>
-              Aqui estão algumas tecnologias com as quais tenho trabalhado recentemente:
+                Aqui estão algumas tecnologias com as quais tenho trabalhado
+                recentemente:
               </p>
               <div className="skills-box mt-40">
                 <div className="skill-item">
@@ -41,7 +47,7 @@ const AboutUs = () => {
                   </div>
                 </div>
                 <div className="skill-item">
-                  <h5 className="fz-14 mb-15">Python</h5>
+                  <h5 className="fz-14 mb-15">PHP</h5>
                   <div className="skill-progress">
                     <div className="progres" data-value="100%"></div>
                   </div>
