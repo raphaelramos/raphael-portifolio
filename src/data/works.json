@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Capital de Giro",
+    "description": "Ferramenta de emprestimo do banco Randon",
+    "type": "web",
+    "thumb": "/img/portfolio/capitaldegiro.jpg",
+    "url": "",
+    "youtubeID": "ifLrP9TZjsA",
+    "tags": ["web", "react", "node", "java", "azure"]
+  },
+  {
+    "title": "Front-end Cobol Modernization",
+    "description": "Projeto em que colaborei em todas etapas como consultor no Itaú Unibanco",
+    "type": "web",
+    "thumb": "/img/portfolio/tocobol.jpg",
+    "url": "",
+    "youtubeID": "7Q2NYQxN6KU",
+    "tags": ["web", "angular", "node", "aws"]
+  },
+  {
+    "title": "e-Igrejas",
+    "description": "Aplicativo para gestão de igrejas. Disponível no meu GitHub",
+    "type": "app",
+    "thumb": "/img/portfolio/eigrejas.jpg",
+    "url": "",
+    "youtubeID": "FOyng54s9Ig",
+    "tags": ["app", "angular", "php", "aws"]
+  },
+  {
+    "title": "Casas de Paz",
+    "description": "Aplicativo da editora Selah",
+    "type": "app",
+    "thumb": "/img/portfolio/casasdepaz.jpg",
+    "url": "https://casasdepaz.com.br",
+    "youtubeID": "",
+    "tags": ["app", "angular", "java", "aws"]
+  },
+  {
+    "title": "Intensivo de Missões",
+    "description": "Site de inscrição para o evento. Disponível no meu GitHub",
+    "type": "web",
+    "thumb": "/img/portfolio/im.jpg",
+    "url": "https://intensivodemissoes.com.br",
+    "youtubeID": "",
+    "tags": ["web", "angular", "node", "aws"]
+  },
+  {
+    "title": "Aplicativo JornalCana e Anuário da Cana",
+    "description": "app do principal veículo de informações sucroenergéticas do Brasil e do mundo",
+    "type": "web",
+    "thumb": "/img/portfolio/jornalcana.jpg",
+    "url": "https://www.jornalcana.com.br",
+    "youtubeID": "",
+    "tags": ["web", "php", "javascript"]
+  },
+  {
+    "title": "Aplicativo Shalom",
+    "description": "app com as informações da Shalom Comunidade Cristã",
+    "type": "app",
+    "thumb": "/img/portfolio/shalomapp.jpg",
+    "url": "https://scc.org.br/app",
+    "youtubeID": "",
+    "tags": ["app", "typescript"]
+  }
+]
