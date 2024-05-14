@@ -1,6 +1,7 @@
 {
   "name": "portifolio-raphael",
   "private": true,
+  "author": "Raphael Ramos (https://raphaelramos.dev)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
