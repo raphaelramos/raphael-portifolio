@@ -13,14 +13,12 @@ const poppins = Poppins({
   display: "swap",
 });
 
-const GOOGLE_TAG_MANAGER_ID = process.env.GOOGLE_TAG_MANAGER_ID;
+const GOOGLE_TAG_MANAGER_ID = "GTM-5MLS8J3";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      {GOOGLE_TAG_MANAGER_ID && (
-        <GoogleTagManager gtmId={GOOGLE_TAG_MANAGER_ID} />
-      )}
+      <GoogleTagManager gtmId={GOOGLE_TAG_MANAGER_ID} />
       <Cursor />
       <LoadingScreen />
       <main className={poppins.className}>
