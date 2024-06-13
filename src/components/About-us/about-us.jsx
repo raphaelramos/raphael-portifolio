@@ -30,6 +30,19 @@ const AboutUs = () => {
                 Eu codifico para Web e Mobile apps
               </h5>
               <p>
+                Tenho uma trajetória de 10 anos em desenvolvimento de software,
+                sendo grande parte como fullstack. Nos últimos anos,
+                concentrei-me em projetos utilizando Java, TypeScript, Angular,
+                React, React Native, Next.js, Nest.js e PHP, com arquiteturas
+                baseada em eventos, BFF e serviços cloud, especialmente no
+                Azure, participando ativamente em todas as etapas do
+                desenvolvimento. Em consultoria para o setor financeiro, na
+                Capco, atuei diretamente com clientes renomados, como o banco
+                Itaú (Modernização) e o banco Bradesco (Pix). Na DBServer, com o
+                cliente banco Randon (capital de giro).
+              </p>
+              <br />
+              <p>
                 Aqui estão algumas tecnologias com as quais tenho trabalhado
                 recentemente:
               </p>
