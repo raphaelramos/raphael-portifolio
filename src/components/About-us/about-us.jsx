@@ -26,20 +26,28 @@ const AboutUs = () => {
           <div className="col-lg-5 valign">
             <div className="cont full-width">
               <h3 className="color-font">Sobre Mim</h3>
-              <h5 className="co-tit mb-15">
-                Eu codifico para Web e Mobile apps
-              </h5>
+              <h5 className="co-tit mb-15">Arquiteto de Soluções e Dev</h5>
               <p>
-                Tenho uma trajetória de 10 anos em desenvolvimento de software,
+                Sou Raphael Ramos, tenho atuado como arquiteto de soluções e
+                possuo uma trajetória de 10 anos em desenvolvimento de software,
                 sendo grande parte como fullstack. Nos últimos anos,
                 concentrei-me em projetos utilizando Java, TypeScript, Angular,
                 React, React Native, Next.js, Nest.js e PHP, com arquiteturas
-                baseada em eventos, BFF e serviços cloud, especialmente no
-                Azure, participando ativamente em todas as etapas do
-                desenvolvimento. Em consultoria para o setor financeiro, na
-                Capco, atuei diretamente com clientes renomados, como o banco
-                Itaú (Modernização) e o banco Bradesco (Pix). Na DBServer, com o
-                cliente banco Randon (capital de giro).
+                baseada em eventos, BFF e serviços cloud, participando
+                ativamente em todas as etapas do desenvolvimento.
+                <br />
+                Em consultoria para o setor financeiro, na Capco, atuei
+                diretamente com clientes renomados, como o banco Itaú
+                (Modernização) e o banco Bradesco (Pix). Na DBServer, com o
+                cliente banco Randon (capital de giro). Atualmente sou Lead
+                Architect na NTT DATA, atuando com o clientes como app Bradesco
+                Seguros.
+              </p>
+              <br />
+              <p>
+                Também sou o criador do conhecido super app fitness{" "}
+                <a href="https://mobifit.app">MobiFit</a> e criador de conteúdo
+                nas redes sociais.
               </p>
               <br />
               <p>

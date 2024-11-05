@@ -1,5 +1,14 @@
 [
   {
+    "title": "MobiFit",
+    "description": "Super App Fitness",
+    "type": "app",
+    "thumb": "/img/portfolio/mobifit.jpg",
+    "url": "https://mobifit.app",
+    "youtubeID": "",
+    "tags": ["app", "react native", "node", "java", "aws"]
+  },
+  {
     "title": "Capital de Giro",
     "description": "Ferramenta de emprestimo do banco Randon",
     "type": "web",
