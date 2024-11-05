@@ -40,7 +40,7 @@ const AboutUs = () => {
                 diretamente com clientes renomados, como o banco Itaú
                 (Modernização) e o banco Bradesco (Pix). Na DBServer, com o
                 cliente banco Randon (capital de giro). Atualmente sou Lead
-                Architect na NTT DATA, atuando com o clientes como app Bradesco
+                Architect na NTT DATA, atuando com clientes como app Bradesco
                 Seguros.
               </p>
               <br />
