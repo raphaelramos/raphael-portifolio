@@ -13,11 +13,11 @@ interface IProps {
     articles: IArticle[]
 }
 
-const title = 'Blog Raphael Ramos'
-const subtitle = 'Compartilho sobre as tecnologias que tenho estudado e trabalhado.'
+const title = 'Blog de Tecnologia | Raphael Ramos - Angular, React, Node e Cloud'
+const description = 'Artigos sobre desenvolvimento web, mobile apps, arquitetura de software e tecnologias como Angular, React, Node.js, serverless e cloud computing.'
 
 const BlogPage = ({ articles }: IProps): JSX.Element => (
-    <Layout title={title} description={subtitle}>
+    <Layout title={title} description={description}>
         <div className="circle-bg">
             <div className="circle-color fixed">
             <div className="gradient-circle"></div>

@@ -18,16 +18,12 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
-        <title>Raphael Ramos</title>
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta
-          name="description"
-          content="Portifólio do Desenvolvedor Raphael Ramos. Node, Angular, React e mais"
-        />
-        <meta name="author" content="Raphael Ramos" />
-        <link rel="shortcut icon" href="/img/favicon.ico" />
-        <link rel="manifest" href="/manifest.webmanifest"></link>
+        <Head>
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="author" content="Raphael Ramos" />
+          <link rel="shortcut icon" href="/img/favicon.ico" />
+          <link rel="manifest" href="/manifest.webmanifest"></link>
+        </Head>
 
         <body>
           <Main />

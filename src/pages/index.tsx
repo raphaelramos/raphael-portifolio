@@ -15,13 +15,14 @@ interface IProps {
     homePageArticles: IHomePageArticles
 }
 
-const title = "Raphael Ramos"
+const title = "Raphael Ramos | Arquiteto de Soluções e Desenvolvedor Full Stack"
+const description = "Portfolio de Raphael Ramos, especialista em desenvolvimento web, mobile e cloud."
 
 const Home = ({
     homePageArticles: { articles, latestBlog },
 }: IProps): JSX.Element => {
     return (
-        <Layout title="Home" description={title}>
+        <Layout title={title} description={description}>
             <Navbar />
             <FreelancreIntro />
             <AboutUs />
