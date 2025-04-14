@@ -61,7 +61,7 @@ const Footer = () => {
               </div>
               <div className="copy-right">
                 <p>
-                  Blog e Portfólio Raphael Ramos. Desenvolvido com Next.js
+                  Blog e Portfólio Raphael Ramos
                 </p>
               </div>
             </div>

@@ -17,7 +17,7 @@ const Blogs = ({ articles }: IProps): JSX.Element => (
             <h6 className="back-color">Últimos artigos</h6>
             <h3>Blog</h3>
             <p>
-            Compartilho sobre as tecnologias que uso e meu dia a dia como Dev.
+            Compartilho sobre as tecnologias que tenho estudado e trabalhado.
             </p>
           </div>
         </div>

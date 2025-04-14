@@ -15,23 +15,37 @@ const FreelancreIntro = () => {
           </div>
           <div className="col-lg-8 valign">
             <div className="cont">
-              <h1 className="cd-headline clip">
-                Sou Raphael, desenvolvedor e construo soluções para&nbsp;
+              <h1 className="cd-headline clip" style={{ position: 'relative' }}>
+                <span style={{ position: 'relative', display: 'inline-block' }}>
+                  Sou Raphael, e construo soluções para{" "}
+                </span>
                 <span
-                  style={{ fontSize: "35px", lineHeight: "49px" }}
+                  style={{ 
+                    fontSize: "35px", 
+                    lineHeight: "49px",
+                    display: "inline-block",
+                    minWidth: "180px",
+                    height: "49px",
+                    position: "relative",
+                    verticalAlign: "bottom",
+                    textAlign: "center",
+                  }}
                   className="cd-words-wrapper"
                 >
                   <TypeIt
                     className="color-font fw-600"
                     getBeforeInit={(instance) => {
                       instance
+                        .type("Cloud")
+                        .pause(750)
+                        .delete()
+                        .type("AI")
+                        .pause(850)
+                        .delete()
+                        .type("Mobile")
+                        .pause(750)
+                        .delete()
                         .type("Web")
-                        .pause(750)
-                        .delete()
-                        .type("Mobile Apps")
-                        .pause(750)
-                        .delete()
-                        .type("Microserviços")
                         .pause(750)
                         .delete();
 
@@ -55,7 +69,7 @@ const FreelancreIntro = () => {
             <ul className="flex">
               <li className="flex">
                 <div className="numb valign">
-                  <h3>10</h3>
+                  <h3>+10</h3>
                 </div>
                 <div className="text valign">
                   <p>

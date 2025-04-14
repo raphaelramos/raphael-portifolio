@@ -42,7 +42,26 @@ const ArticlePage = ({ article, publishedDate }: IProps): JSX.Element => (
     <PageHeader title={article?.title} paragraph="" />
     <p className="text-center">{publishedDate}</p>
 
-    <BlogDetails article={article} />
+    <div itemScope itemType="https://schema.org/BlogPosting">
+      {article?.coverImage && (
+        <meta itemProp="image" content={article.coverImage} />
+      )}
+      {article?.publishedAt && (
+        <meta itemProp="datePublished" content={article.publishedAt} />
+      )}
+      {article?.title && (
+        <meta itemProp="headline" content={article.title} />
+      )}
+
+      <div itemProp="publisher" itemScope itemType="https://schema.org/Organization">
+        <meta itemProp="name" content="Raphael Ramos" />
+        <div itemProp="logo" itemScope itemType="https://schema.org/ImageObject">
+          <meta itemProp="url" content="/img/raphael.jpg" />
+        </div>
+      </div>
+      
+      <BlogDetails article={article} />
+    </div>
     <Footer />
   </Layout>
 );

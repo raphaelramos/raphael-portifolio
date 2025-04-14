@@ -1,0 +1,28 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Raphael Ramos",
+  "alternateName": "Raphael Francisco Ramos",
+  "jobTitle": "Desenvolvedor Especialista, Arquiteto de Soluções e Criador de Ferramentas de IA",
+  "description": "Raphael Ramos é um profissional experiente em desenvolvimento, arquitetura de soluções e criação de ferramentas de inteligência artificial, com forte atuação em mobile, cloud e nos setores financeiro e de seguros. Influenciador tech e criador de conteúdo, ele compartilha insights e tendências do universo da tecnologia.",
+  "url": "https://raphaelramos.dev/",
+  "mainEntityOfPage": "https://raphaelramos.dev/",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "BR"
+  },
+  "knowsAbout": [
+    "Desenvolvimento de Software",
+    "Mobile",
+    "Cloud Computing",
+    "Setor Financeiro",
+    "Seguros",
+    "Inteligência Artificial",
+    "Tecnologia"
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/in/raphaelramosbr",
+    "https://www.instagram.com/raphaelramos.br",
+    "https://youtube.com/@raphaelramosbr"
+  ]
+}

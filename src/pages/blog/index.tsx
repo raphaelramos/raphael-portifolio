@@ -14,7 +14,7 @@ interface IProps {
 }
 
 const title = 'Blog Raphael Ramos'
-const subtitle = 'Compartilho sobre as tecnologias que uso e meu dia a dia como Desenvolvedor.'
+const subtitle = 'Compartilho sobre as tecnologias que tenho estudado e trabalhado.'
 
 const BlogPage = ({ articles }: IProps): JSX.Element => (
     <Layout title={title} description={subtitle}>
@@ -27,7 +27,7 @@ const BlogPage = ({ articles }: IProps): JSX.Element => (
         <Navbar />
         <PageHeader
             title="Blog"
-            paragraph="Compartilho sobre as tecnologias do meu dia a dia"
+            paragraph="Compartilho sobre as tecnologias que tenho estudado e trabalhado"
         />
 
         <section className="blog-pg section-padding pt-0">

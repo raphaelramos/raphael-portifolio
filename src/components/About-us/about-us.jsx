@@ -28,26 +28,25 @@ const AboutUs = () => {
               <h3 className="color-font">Sobre Mim</h3>
               <h5 className="co-tit mb-15">Arquiteto de Soluções e Dev</h5>
               <p>
-                Sou Raphael Ramos, tenho atuado como arquiteto de soluções e
-                possuo uma trajetória de 10 anos em desenvolvimento de software,
-                sendo grande parte como fullstack. Nos últimos anos,
-                concentrei-me em projetos utilizando Java, TypeScript, Angular,
-                React, React Native, Next.js, Nest.js e PHP, com arquiteturas
-                baseada em eventos, BFF e serviços cloud, participando
-                ativamente em todas as etapas do desenvolvimento.
-                <br />
-                Em consultoria para o setor financeiro, na Capco, atuei
-                diretamente com clientes renomados, como o banco Itaú
-                (Modernização) e o banco Bradesco (Pix). Na DBServer, com o
-                cliente banco Randon (capital de giro). Atualmente sou Lead
-                Architect na NTT DATA, atuando com clientes como app Bradesco
-                Seguros.
+                Sou Arquiteto de Soluções com mais de 10 anos de experiência em desenvolvimento de software, com atuação em bancos e seguradoras.
+                Atuo tanto no desenvolvimento frontend e mobile utilizando Angular, Ionic e React Native quanto no backend com Node, Java e PHP, 
+                e possuo experiência em arquiteturas baseadas em eventos, BFF, serverless, AWS, Azure e CI/CD.
+                Possuo também experiência em liderança técnica e no uso de ferramentas de inteligência artificial.
               </p>
               <br />
               <p>
-                Também sou o criador do conhecido super app fitness{" "}
-                <a href="https://mobifit.app">MobiFit</a> e criador de conteúdo
-                nas redes sociais.
+                Na Capco Wipro, atuei em projetos de modernização no Banco Itaú e de iniciativas relacionadas ao Pix no Banco Bradesco. 
+                Na DBServer, atuei em projeto para o Banco Randon.
+              </p>
+              <p>
+                Atualmente, sou Lead Architect na NTT DATA, atuando como Arquiteto do Mapfre Pay, 
+                e fui responsável pelo desenho de soluções e pelo suporte técnico e de negócio para o app Bradesco Seguros.
+              </p>
+              <br />
+              <p>
+                Também sou o criador do super app fitness{" "}
+                <a href="https://mobifit.app">MobiFit</a> que integra inteligência artificial e conceitos de local-first, serverless e edge functions. 
+                Também sou criador de conteúdo técnico e carreira nas redes sociais.
               </p>
               <br />
               <p>
@@ -56,6 +55,12 @@ const AboutUs = () => {
               </p>
               <div className="skills-box mt-40">
                 <div className="skill-item">
+                  <h5 className="fz-14 mb-15">AWS</h5>
+                  <div className="skill-progress">
+                    <div className="progres" data-value="100%"></div>
+                  </div>
+                </div>
+                <div className="skill-item">
                   <h5 className="fz-14 mb-15">Angular / React</h5>
                   <div className="skill-progress">
                     <div className="progres" data-value="100%"></div>
@@ -63,12 +68,6 @@ const AboutUs = () => {
                 </div>
                 <div className="skill-item">
                   <h5 className="fz-14 mb-15">Node</h5>
-                  <div className="skill-progress">
-                    <div className="progres" data-value="100%"></div>
-                  </div>
-                </div>
-                <div className="skill-item">
-                  <h5 className="fz-14 mb-15">PHP</h5>
                   <div className="skill-progress">
                     <div className="progres" data-value="100%"></div>
                   </div>
