@@ -1,6 +1,6 @@
 import "@/styles/main.scss";
 import type { AppProps } from "next/app";
-import { Poppins } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import Script from "next/script";
 import Cursor from "../components/cursor";
 import ScrollToTop from "../components/scrollToTop";
@@ -11,6 +11,14 @@ const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
   display: "swap",
+  variable: '--font-poppins',
+});
+
+const inter = Inter({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: '--font-inter',
 });
 
 const GOOGLE_TAG_MANAGER_ID = "GTM-5MLS8J3";
@@ -21,7 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <GoogleTagManager gtmId={GOOGLE_TAG_MANAGER_ID} />
       <Cursor />
       <LoadingScreen />
-      <main className={poppins.className}>
+      <main className={`${inter.variable} ${poppins.variable} ${inter.className}`}>
         <Component {...pageProps} />
       </main>
       <ScrollToTop />
