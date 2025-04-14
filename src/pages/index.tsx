@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type JSX } from "react";
 import Navbar from "../components/Navbar/navbar";
 import Footer from "../components/Footer/footer";
 import FreelancreIntro from "../components/Freelancre-intro/freelancre-intro";

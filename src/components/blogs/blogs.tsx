@@ -2,6 +2,8 @@ import Link from "next/link";
 import HomeArticleCard from '../Article/HomeArticleCard'
 import IArticle from '../../interfaces/IArticle'
 
+import type { JSX } from "react";
+
 interface IProps {
     articles: IArticle[]
 }

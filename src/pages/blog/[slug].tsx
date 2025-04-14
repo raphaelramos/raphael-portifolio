@@ -13,6 +13,8 @@ import BlogDetails from "../../components/Blog-details/blog-details";
 import Footer from "../../components/Footer/footer";
 import { getAllBlogArticles, getArticleFromCache } from '../../lib/devto'
 
+import type { JSX } from "react";
+
 const cacheFile = '.devto-articles-cache.json'
 
 interface IProps {

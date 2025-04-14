@@ -7,6 +7,8 @@ import Navbar from '../../components/Navbar/navbar'
 import PageHeader from '../../components/Page-header/page-header'
 import Footer from "../../components/Footer/footer";
 
+import type { JSX } from "react";
+
 interface IProps {
     articles: IArticle[]
 }

@@ -2,11 +2,90 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import ModalVideo from "react-modal-video";
-import "react-modal-video/css/modal-video.css";
 import initIsotope from "@/common/initIsotope";
 import worksData from "@/data/works.json";
 import IWork from "@/interfaces/IWork";
+
+interface YouTubeModalProps {
+  isOpen: boolean;
+  videoId: string;
+  onClose: () => void;
+}
+
+const YouTubeModal: React.FC<YouTubeModalProps> = ({ isOpen, videoId, onClose }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div 
+      className="youtube-modal-overlay"
+      onClick={onClose}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: "rgba(0, 0, 0, 0.85)",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        zIndex: 1000,
+      }}
+    >
+      <div 
+        className="youtube-modal-content"
+        style={{
+          width: "80%",
+          maxWidth: "800px",
+          position: "relative",
+        }}
+        onClick={e => e.stopPropagation()}
+      >
+        <button 
+          className="youtube-modal-close"
+          onClick={onClose}
+          style={{
+            position: "absolute",
+            top: "-40px",
+            right: "-40px",
+            background: "none",
+            border: "none",
+            color: "white",
+            fontSize: "30px",
+            cursor: "pointer",
+          }}
+        >
+          &times;
+        </button>
+        <div 
+          className="youtube-modal-video-container"
+          style={{
+            position: "relative",
+            paddingBottom: "56.25%", // 16:9 aspect ratio
+            height: 0,
+            overflow: "hidden",
+          }}
+        >
+          <iframe
+            width="100%"
+            height="100%"
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+            }}
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const WorksStyle = () => {
   const [isOpenVideo, setOpenVideo] = React.useState(false);
@@ -25,8 +104,7 @@ const WorksStyle = () => {
   return (
     <section className="portfolio-frl section-padding pb-70">
       <div className="container">
-        <ModalVideo
-          channel="youtube"
+        <YouTubeModal
           isOpen={isOpenVideo}
           videoId={youtubeID}
           onClose={() => setOpenVideo(false)}

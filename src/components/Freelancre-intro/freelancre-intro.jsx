@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import Typewriter from "typewriter-effect";
+import TypeIt from "typeit-react";
 import appData from "../../data/app.json";
 
 const FreelancreIntro = () => {
@@ -21,20 +21,27 @@ const FreelancreIntro = () => {
                   style={{ fontSize: "35px", lineHeight: "49px" }}
                   className="cd-words-wrapper"
                 >
-                  <Typewriter
-                    options={{
-                      wrapperClassName: "color-font fw-600",
-                      strings: [
-                        "Web",
-                        "Mobile Apps",
-                        "Microserviços",
-                      ],
-                      autoStart: true,
-                      loop: true,
+                  <TypeIt
+                    className="color-font fw-600"
+                    getBeforeInit={(instance) => {
+                      instance
+                        .type("Web")
+                        .pause(750)
+                        .delete()
+                        .type("Mobile Apps")
+                        .pause(750)
+                        .delete()
+                        .type("Microserviços")
+                        .pause(750)
+                        .delete();
+
+                      // Remember to return the instance
+                      return instance;
                     }}
-                    loop={true}
-                    onInit={(typewriter) => {
-                      typewriter;
+                    options={{
+                      speed: 100,
+                      waitUntilVisible: true,
+                      loop: true
                     }}
                   />
                 </span>

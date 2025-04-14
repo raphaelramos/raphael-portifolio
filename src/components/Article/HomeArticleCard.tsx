@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { convertCanonicalURLToRelative } from '../../lib/devto'
 import { dateFormat } from '../../lib/utils'
 
+import type { JSX } from "react";
+
 interface IProps {
     title: string
     description: string

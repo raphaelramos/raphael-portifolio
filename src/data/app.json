@@ -1,7 +1,7 @@
 {
     "lightLogo": "/img/logo-light.png",
     "darkLogo": "/img/logo-dark.png",
-    "showLoading": true,
+    "showLoading": false,
     "devtoUsername": "raphaelramos",
     "blogURL": "https://raphaelramos.dev/blog/",
     "portfolioURL": "https://raphaelramos.dev",

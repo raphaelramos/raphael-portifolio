@@ -16,9 +16,14 @@ const LoadingScreen = () => {
       bodyEl.classList.add("hideX");
     }
   });
+  
+  if (!appData.showLoading) {
+    return null;
+  }
+  
   return (
     <>
-      <div className={`${appData.showLoading === true ? "showX" : "hideX"}`}>
+      <div className="showX">
         <div className="loading">
           <span>L</span>
           <span>o</span>
@@ -30,15 +35,11 @@ const LoadingScreen = () => {
         </div>
         <div id="preloader"></div>
       </div>
-      {appData.showLoading ? (
-        <Script
-          id="pace"
-          strategy="beforeInteractive"
-          src="/js/pace.min.js"
-        ></Script>
-      ) : (
-        ""
-      )}
+      <Script
+        id="pace"
+        strategy="beforeInteractive"
+        src="/js/pace.min.js"
+      ></Script>
     </>
   );
 };
