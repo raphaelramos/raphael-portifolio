@@ -39,8 +39,8 @@ const AboutUs = () => {
                 Na DBServer, atuei em projeto para o Banco Randon.
               </p>
               <p>
-                Atualmente, sou Lead Architect na NTT DATA, atuando como Arquiteto do Mapfre Pay, 
-                e fui responsável pelo desenho de soluções e pelo suporte técnico e de negócio para o app Bradesco Seguros.
+              Atualmente, sou Lead Architect na NTT DATA, atuando como Arquiteto do Mapfre Pay, 
+              e fui o arquiteto do app Bradesco Seguros, sendo responsável pelo desenho de soluções, sistemas e apoio para os times técnico e de negócio.
               </p>
               <br />
               <p>
