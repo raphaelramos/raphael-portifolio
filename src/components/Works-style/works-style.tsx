@@ -99,7 +99,7 @@ const WorksStyle = () => {
   const [isPageLoaded, setIsPageLoaded] = React.useState(false);
   React.useEffect(() => {
     setIsPageLoaded(true);
-  }, [isPageLoaded]);
+  }, []);
   return (
     <section className="portfolio-frl section-padding pb-70">
       <div className="container">

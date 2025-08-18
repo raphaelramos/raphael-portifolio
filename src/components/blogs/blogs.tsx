@@ -1,4 +1,5 @@
 import Link from "next/link";
+import React from "react";
 import HomeArticleCard from '../Article/HomeArticleCard'
 import IArticle from '../../interfaces/IArticle'
 
@@ -8,7 +9,7 @@ interface IProps {
     articles: IArticle[]
 }
 
-const Blogs = ({ articles }: IProps): JSX.Element => (
+const Blogs = React.memo(({ articles }: IProps): JSX.Element => (
   <section className="blog-list section-padding sub-bg">
     <div className="container">
       <div className="row">
@@ -22,9 +23,9 @@ const Blogs = ({ articles }: IProps): JSX.Element => (
           </div>
         </div>
         <div className="col-lg-7 offset-lg-1">
-          {articles.map(({ title, description, publishedAt, tags, canonical, coverImage }) => (
+          {articles.map(({ title, description, publishedAt, tags, canonical, coverImage }, index) => (
               <HomeArticleCard
-                  key={title}
+                  key={`${canonical}-${index}`}
                   title={title}
                   coverImage={coverImage}
                   description={description}
@@ -42,6 +43,8 @@ const Blogs = ({ articles }: IProps): JSX.Element => (
       </div>
     </div>
   </section>
-)
+))
+
+Blogs.displayName = 'Blogs';
 
 export default Blogs

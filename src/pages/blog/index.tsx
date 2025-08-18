@@ -37,8 +37,8 @@ const BlogPage = ({ articles }: IProps): JSX.Element => (
                     <div className="col-lg-10">
                         <div className="posts">
                             <div className="row">
-                                {articles.map(({ title, description, publishedAt, tags, canonical, coverImage }) => (
-                                    <div key={title} className="col-lg-6 col-md-6 mb-5">
+                                {articles.map(({ title, description, publishedAt, tags, canonical, coverImage }, index) => (
+                                    <div key={`${canonical}-${index}`} className="col-lg-6 col-md-6 mb-5">
                                         <div className="article-card-wrapper h-100">
                                             <ArticleCard
                                                 title={title}
