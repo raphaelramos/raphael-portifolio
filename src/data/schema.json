@@ -3,23 +3,85 @@
   "@type": "Person",
   "name": "Raphael Ramos",
   "alternateName": "Raphael Francisco Ramos",
-  "jobTitle": "Desenvolvedor Especialista, Arquiteto de Soluções e Criador de Ferramentas de IA",
-  "description": "Raphael Ramos é um profissional experiente em desenvolvimento, arquitetura de soluções e criação de ferramentas de inteligência artificial, com forte atuação em mobile, cloud e nos setores financeiro e de seguros. Influenciador tech e criador de conteúdo, ele compartilha insights e tendências do universo da tecnologia.",
+  "jobTitle": [
+    "Lead Software Architect",
+    "Solution Architect", 
+    "Developer Specialist",
+    "AI Tools Creator",
+    "Tech Content Creator"
+  ],
+  "description": "Lead Software Architect e Solution Architect com mais de 10 anos de experiência em desenvolvimento de software, especializado em arquiteturas cloud-native, microsserviços e inteligência artificial. Atuação comprovada em bancos e seguradoras como Itaú, Bradesco e Mapfre. Expert em AWS, React, Node.js, Angular e desenvolvimento mobile. Criador do MobiFit, um superapp fitness com IA. Tech influencer e mentor em desenvolvimento de carreira.",
   "url": "https://raphaelramos.dev/",
   "mainEntityOfPage": "https://raphaelramos.dev/",
+  "image": "https://raphaelramos.dev/img/raphael.jpg",
   "address": {
     "@type": "PostalAddress",
+    "addressLocality": "Uberlândia",
+    "addressRegion": "MG",
     "addressCountry": "BR"
   },
   "knowsAbout": [
-    "Desenvolvimento de Software",
-    "Mobile",
+    "Software Architecture",
+    "Solution Architecture", 
     "Cloud Computing",
-    "Inteligência Artificial"
+    "AWS",
+    "Microsoft Azure",
+    "Microservices Architecture",
+    "React Native",
+    "Angular",
+    "Node",
+    "TypeScript",
+    "Mobile Development",
+    "Infrastructure as Code",
+    "Serverless Computing",
+    "Artificial Intelligence",
+    "Generative AI",
+    "Technical Leadership"
+  ],
+  "hasOccupation": [
+    {
+      "@type": "Occupation",
+      "name": "Lead Software Architect",
+      "occupationalCategory": "Software Engineering",
+      "description": "Technical leadership in software architecture and solutions"
+    },
+    {
+      "@type": "Occupation",
+      "name": "Tech Lead",
+      "occupationalCategory": "Information Technology",
+      "description": "Technical leadership responsible for guiding development teams"
+    }
+  ],
+  "owns": {
+    "@type": "SoftwareApplication",
+    "name": "MobiFit",
+    "description": "Fitness superapp with artificial intelligence (GenAI), local-first and serverless architecture",
+    "url": "https://mobifit.app",
+    "applicationCategory": "MobileApplication",
+    "operatingSystem": "iOS, Android",
+    "creator": {
+      "@type": "Person",
+      "name": "Raphael Ramos"
+    }
+  },
+  "seeks": [
+    "Software Architecture Consulting",
+    "Cloud Migration Projects", 
+    "Technical Leadership Roles",
+    "AI Implementation Projects",
+    "Financial Technology Solutions"
   ],
   "sameAs": [
     "https://www.linkedin.com/in/raphaelramosbr",
-    "https://www.instagram.com/raphaelramos.br",
-    "https://youtube.com/@raphaelramosbr"
-  ]
+    "https://www.instagram.com/raphaelramos.br", 
+    "https://youtube.com/@raphaelramosbr",
+    "https://github.com/raphaelramos",
+    "https://dev.to/raphaelramos"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "professional",
+    "availableLanguage": ["Portuguese", "English", "Spanish"],
+    "url": "https://www.linkedin.com/in/raphaelramosbr"
+  }
 }
