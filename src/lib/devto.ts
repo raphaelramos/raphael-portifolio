@@ -56,7 +56,7 @@ const fetchArticlesFromAPI = async (per_page = 1000): Promise<IArticle[]> => {
         const { data }: AxiosResponse = await axios.get(`https://dev.to/api/articles/me`, {
             params,
             headers,
-            timeout: 10000, // 10 second timeout
+            timeout: 15000, // Increased timeout to 15 seconds
         })
         
         return data.map(convertDevtoResponseToArticle)
@@ -65,6 +65,10 @@ const fetchArticlesFromAPI = async (per_page = 1000): Promise<IArticle[]> => {
         
         // If it's a rate limiting error (429) or any other error, return empty array
         // The cache will handle fallbacks and the build won't fail
+        if (axios.isAxiosError(error) && error.response?.status === 429) {
+            console.warn('Dev.to API rate limit reached, returning empty array for build to continue')
+        }
+        
         return []
     }
 }
@@ -111,7 +115,7 @@ export const getHomePageArticles = async (): Promise<IHomePageArticles> => {
     try {
         const articles = await getCachedArticles()
         const blogArticles = articles.filter(blogFilter)
-        const [latestBlog] = blogArticles
+        const latestBlog = blogArticles.length > 0 ? blogArticles[0] : null
         
         return {
             articles: articles.slice(0, 4),

@@ -44,10 +44,26 @@ export const getStaticProps: GetStaticProps = async () => {
         }
     }
 
-    const homePageArticles = await getHomePageArticles()
-    return { 
-        props: { homePageArticles },
-        revalidate: CACHE_REVALIDATE_TIME,
+    try {
+        const homePageArticles = await getHomePageArticles()
+        
+        // Ensure latestBlog is null if undefined to prevent serialization errors
+        const sanitizedArticles = {
+            articles: homePageArticles.articles || [],
+            latestBlog: homePageArticles.latestBlog || null
+        }
+        
+        return { 
+            props: { homePageArticles: sanitizedArticles },
+            revalidate: CACHE_REVALIDATE_TIME,
+        }
+    } catch (error) {
+        console.error('Error in getStaticProps:', error)
+        // Return default props if there's any error
+        return { 
+            props: { homePageArticles: defaultProps },
+            revalidate: CACHE_REVALIDATE_TIME,
+        }
     }
 }
 
