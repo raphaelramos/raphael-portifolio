@@ -1,9 +1,11 @@
+
 import axios, { AxiosResponse } from 'axios'
 import IArticle from '../interfaces/IArticle'
 import ICachedArticle from '../interfaces/ICachedArticle'
 import IHomePageArticles from '../interfaces/IHomePageArticles'
 import { convertMarkdownToHtml, sanitizeDevToMarkdown } from './markdown'
 import appData from "../data/app.json";
+import { DevtoApiResponse } from '../interfaces/IDevtoApiResponse';
 
 const username = appData.devtoUsername
 const blogURL = appData.blogURL
@@ -17,8 +19,8 @@ export const convertCanonicalURLToRelative = (canonical: string): string => {
     return canonical.replace(blogURL, '')
 }
 
-// eslint-disable-next-line, @typescript-eslint/no-explicit-any
-const convertDevtoResponseToArticle = (data: any): IArticle => {
+
+const convertDevtoResponseToArticle = (data: DevtoApiResponse): IArticle => {
     const slug = convertCanonicalURLToRelative(data.canonical_url)
     const markdown = sanitizeDevToMarkdown(data.body_markdown)
     const html = convertMarkdownToHtml(markdown)
@@ -34,7 +36,7 @@ const convertDevtoResponseToArticle = (data: any): IArticle => {
         commentsCount: data.comments_count,
         publicReactionsCount: data.public_reactions_count,
         positiveReactionsCount: data.positive_reactions_count,
-        coverImage: data.cover_image,
+        coverImage: data.cover_image ?? '',
         tags: data.tag_list,
         canonical: data.canonical_url,
         collectionId: data.collection_id || -1,
