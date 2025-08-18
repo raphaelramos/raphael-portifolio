@@ -2,6 +2,7 @@ import Layout from '../../layouts/Layout'
 import ArticleCard from '../../components/Article/ArticleCard'
 import IArticle from '../../interfaces/IArticle'
 import { getAllBlogArticles } from '../../lib/devto'
+import { CACHE_REVALIDATE_TIME } from '../../lib/constants'
 import { GetStaticProps } from 'next'
 import Navbar from '../../components/Navbar/navbar'
 import PageHeader from '../../components/Page-header/page-header'
@@ -57,11 +58,11 @@ const BlogPage = ({ articles }: IProps): JSX.Element => (
 )
 
 export const getStaticProps: GetStaticProps = async () => {
-    // Get all the articles that have a canonical URL pointed to your blog
     const articles = await getAllBlogArticles()
-
-    // Pass articles to the page via props
-    return { props: { articles } }
+    return { 
+        props: { articles },
+        revalidate: CACHE_REVALIDATE_TIME,
+    }
 }
 
 export default BlogPage

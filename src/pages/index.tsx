@@ -10,6 +10,7 @@ import { GetStaticProps } from 'next'
 import Layout from '../layouts/Layout'
 import IHomePageArticles from '../interfaces/IHomePageArticles'
 import { getHomePageArticles } from '../lib/devto'
+import { CACHE_REVALIDATE_TIME } from '../lib/constants'
 
 interface IProps {
     homePageArticles: IHomePageArticles
@@ -19,7 +20,7 @@ const title = "Raphael Ramos | Arquiteto de Soluções e Desenvolvedor Full Stac
 const description = "Portfolio de Raphael Ramos, especialista em desenvolvimento web, mobile e cloud."
 
 const Home = ({
-    homePageArticles: { articles, latestBlog },
+    homePageArticles: { articles },
 }: IProps): JSX.Element => {
     return (
         <Layout title={title} description={description}>
@@ -34,13 +35,20 @@ const Home = ({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const homePageArticles = { articles: [] }
-    if (process.env.DEVTO_APIKEY) {
-        const homePageArticles = await getHomePageArticles()
-        return { props: { homePageArticles } }
+    const defaultProps = { articles: [] }
+    
+    if (!process.env.DEVTO_APIKEY) {
+        return { 
+            props: { homePageArticles: defaultProps },
+            revalidate: CACHE_REVALIDATE_TIME,
+        }
     }
 
-    return { props: { homePageArticles } }
+    const homePageArticles = await getHomePageArticles()
+    return { 
+        props: { homePageArticles },
+        revalidate: CACHE_REVALIDATE_TIME,
+    }
 }
 
 export default Home

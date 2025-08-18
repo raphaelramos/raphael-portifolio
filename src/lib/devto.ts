@@ -1,9 +1,10 @@
 
 import axios, { AxiosResponse } from 'axios'
+import { unstable_cache } from 'next/cache'
 import IArticle from '../interfaces/IArticle'
-import ICachedArticle from '../interfaces/ICachedArticle'
 import IHomePageArticles from '../interfaces/IHomePageArticles'
 import { convertMarkdownToHtml, sanitizeDevToMarkdown } from './markdown'
+import { CACHE_REVALIDATE_TIME, DEVTO_CACHE_TAG } from './constants'
 import appData from "../data/app.json";
 import { DevtoApiResponse } from '../interfaces/IDevtoApiResponse';
 
@@ -11,7 +12,6 @@ const username = appData.devtoUsername
 const blogURL = appData.blogURL
 const portfolioURL = appData.portfolioURL
 
-// Takes a URL and returns the relative slug to your website
 export const convertCanonicalURLToRelative = (canonical: string): string => {
     if (canonical.startsWith(portfolioURL)) {
         return canonical.replace(portfolioURL, '')
@@ -25,7 +25,7 @@ const convertDevtoResponseToArticle = (data: DevtoApiResponse): IArticle => {
     const markdown = sanitizeDevToMarkdown(data.body_markdown)
     const html = convertMarkdownToHtml(markdown)
 
-    const article: IArticle = {
+    return {
         id: data.id,
         title: data.title,
         description: data.description,
@@ -44,40 +44,56 @@ const convertDevtoResponseToArticle = (data: DevtoApiResponse): IArticle => {
         markdown,
         html,
     }
-    return article
 }
 
 const blogFilter = (article: IArticle): boolean => article.canonical.startsWith(blogURL)
 
-// Get all users articles from Dev.to and filter by ones with a canonical URL to your blog
-export const getAllArticles = async (per_page = 1000): Promise<IArticle[]> => {
+const fetchArticlesFromAPI = async (per_page = 1000): Promise<IArticle[]> => {
     const params = { username, per_page: per_page }
     const headers = { 'api-key': process.env.DEVTO_APIKEY }
     const { data }: AxiosResponse = await axios.get(`https://dev.to/api/articles/me`, {
         params,
         headers,
     })
-    const articles: IArticle[] = data.map(convertDevtoResponseToArticle)
-    return articles
+    return data.map(convertDevtoResponseToArticle)
+}
+
+// Single cached function to fetch all articles from Dev.to API
+const getCachedArticles = unstable_cache(
+    async (): Promise<IArticle[]> => {
+        return fetchArticlesFromAPI()
+    },
+    ['devto-articles'],
+    {
+        revalidate: CACHE_REVALIDATE_TIME,
+        tags: [DEVTO_CACHE_TAG],
+    }
+)
+
+// Get all users articles from Dev.to with Next.js cache
+export const getAllArticles = async (per_page = 1000): Promise<IArticle[]> => {
+    const articles = await getCachedArticles()
+    return per_page === 1000 ? articles : articles.slice(0, per_page)
 }
 
 export const getAllBlogArticles = async (): Promise<IArticle[]> => {
-    const articles = await getAllArticles()
+    const articles = await getCachedArticles()
     return articles.filter(blogFilter)
 }
 
 export const getHomePageArticles = async (): Promise<IHomePageArticles> => {
-    const articles = await getAllArticles(4)
-    const [latestBlog] = articles.filter(blogFilter)
-
+    const articles = await getCachedArticles()
+    const blogArticles = articles.filter(blogFilter)
+    const [latestBlog] = blogArticles
+    
     return {
-        articles,
+        articles: articles.slice(0, 4),
         latestBlog
     }
 }
 
-// Gets an article from Dev.to using the ID that was saved to the cache earlier
-export const getArticleFromCache = (cache: ICachedArticle[], slug: string): IArticle => {
-    const article = cache.find((cachedArticle) => cachedArticle.slug === slug) as IArticle
-    return article
+// Gets an article by slug from cached blog articles
+export const getArticleBySlug = async (slug: string): Promise<IArticle | null> => {
+    const articles = await getAllBlogArticles()
+    return articles.find((article) => article.slug === slug) || null
 }
