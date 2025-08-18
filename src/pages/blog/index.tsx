@@ -63,10 +63,18 @@ const BlogPage = ({ articles }: IProps): JSX.Element => (
 )
 
 export const getStaticProps: GetStaticProps = async () => {
-    const articles = await getAllBlogArticles()
-    return { 
-        props: { articles },
-        revalidate: CACHE_REVALIDATE_TIME,
+    try {
+        const articles = await getAllBlogArticles()
+        return { 
+            props: { articles },
+            revalidate: CACHE_REVALIDATE_TIME,
+        }
+    } catch (error) {
+        console.error('Error fetching blog articles:', error)
+        return { 
+            props: { articles: [] },
+            revalidate: CACHE_REVALIDATE_TIME,
+        }
     }
 }
 

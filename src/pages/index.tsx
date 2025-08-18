@@ -35,7 +35,7 @@ const Home = ({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const defaultProps = { articles: [] }
+    const defaultProps = { articles: [], latestBlog: null }
     
     if (!process.env.DEVTO_APIKEY) {
         return { 

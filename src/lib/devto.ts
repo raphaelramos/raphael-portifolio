@@ -49,19 +49,35 @@ const convertDevtoResponseToArticle = (data: DevtoApiResponse): IArticle => {
 const blogFilter = (article: IArticle): boolean => article.canonical.startsWith(blogURL)
 
 const fetchArticlesFromAPI = async (per_page = 1000): Promise<IArticle[]> => {
-    const params = { username, per_page: per_page }
-    const headers = { 'api-key': process.env.DEVTO_APIKEY }
-    const { data }: AxiosResponse = await axios.get(`https://dev.to/api/articles/me`, {
-        params,
-        headers,
-    })
-    return data.map(convertDevtoResponseToArticle)
+    try {
+        const params = { username, per_page: per_page }
+        const headers = process.env.DEVTO_APIKEY ? { 'api-key': process.env.DEVTO_APIKEY } : {}
+        
+        const { data }: AxiosResponse = await axios.get(`https://dev.to/api/articles/me`, {
+            params,
+            headers,
+            timeout: 10000, // 10 second timeout
+        })
+        
+        return data.map(convertDevtoResponseToArticle)
+    } catch (error) {
+        console.error('Failed to fetch articles from Dev.to API:', error)
+        
+        // If it's a rate limiting error (429) or any other error, return empty array
+        // The cache will handle fallbacks and the build won't fail
+        return []
+    }
 }
 
 // Single cached function to fetch all articles from Dev.to API
 const getCachedArticles = unstable_cache(
     async (): Promise<IArticle[]> => {
-        return fetchArticlesFromAPI()
+        try {
+            return await fetchArticlesFromAPI()
+        } catch (error) {
+            console.error('Error in getCachedArticles:', error)
+            return []
+        }
     },
     ['devto-articles'],
     {
@@ -72,28 +88,50 @@ const getCachedArticles = unstable_cache(
 
 // Get all users articles from Dev.to with Next.js cache
 export const getAllArticles = async (per_page = 1000): Promise<IArticle[]> => {
-    const articles = await getCachedArticles()
-    return per_page === 1000 ? articles : articles.slice(0, per_page)
+    try {
+        const articles = await getCachedArticles()
+        return per_page === 1000 ? articles : articles.slice(0, per_page)
+    } catch (error) {
+        console.error('Error fetching all articles:', error)
+        return []
+    }
 }
 
 export const getAllBlogArticles = async (): Promise<IArticle[]> => {
-    const articles = await getCachedArticles()
-    return articles.filter(blogFilter)
+    try {
+        const articles = await getCachedArticles()
+        return articles.filter(blogFilter)
+    } catch (error) {
+        console.error('Error fetching blog articles:', error)
+        return []
+    }
 }
 
 export const getHomePageArticles = async (): Promise<IHomePageArticles> => {
-    const articles = await getCachedArticles()
-    const blogArticles = articles.filter(blogFilter)
-    const [latestBlog] = blogArticles
-    
-    return {
-        articles: articles.slice(0, 4),
-        latestBlog
+    try {
+        const articles = await getCachedArticles()
+        const blogArticles = articles.filter(blogFilter)
+        const [latestBlog] = blogArticles
+        
+        return {
+            articles: articles.slice(0, 4),
+            latestBlog
+        }
+    } catch (error) {
+        console.error('Error fetching homepage articles:', error)
+        return {
+            articles: [],
+            latestBlog: null
+        }
     }
 }
 
 // Gets an article by slug from cached blog articles
 export const getArticleBySlug = async (slug: string): Promise<IArticle | null> => {
     const articles = await getAllBlogArticles()
-    return articles.find((article) => article.slug === slug) || null
+    
+    // Normalize slug - ensure it starts with /blog/
+    const normalizedSlug = slug.startsWith('/blog/') ? slug : `/blog/${slug}`
+    
+    return articles.find((article) => article.slug === normalizedSlug) || null
 }

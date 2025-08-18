@@ -64,24 +64,45 @@ const ArticlePage = ({ article, publishedDate }: IProps): JSX.Element => (
 
 export const getStaticProps: GetStaticProps = async (context) => {
     const { slug } = context.params as IParams
-    const article: IArticle | null = await getArticleBySlug(`/blog/${slug}`)
+    
+    try {
+        // The slug from params should not have /blog/ prefix since it's already in the route
+        const article: IArticle | null = await getArticleBySlug(slug)
 
-    if (!article) {
+        if (!article) {
+            return { notFound: true }
+        }
+
+        const publishedDate = dateFormat(article.publishedAt)
+        return { 
+            props: { article, publishedDate },
+            revalidate: CACHE_REVALIDATE_TIME,
+        }
+    } catch (error) {
+        console.error('Error fetching article:', error)
         return { notFound: true }
-    }
-
-    const publishedDate = dateFormat(article.publishedAt)
-    return { 
-        props: { article, publishedDate },
-        revalidate: CACHE_REVALIDATE_TIME,
     }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const articles: IArticle[] = await getAllBlogArticles()
-    const paths = articles.map(({ slug }) => ({ params: { slug } }))
-    
-    return { paths, fallback: 'blocking' }
+    try {
+        const articles: IArticle[] = await getAllBlogArticles()
+        const paths = articles.map(({ slug }) => {
+            // Remove /blog/ prefix if it exists in the slug
+            let cleanSlug = slug
+            if (slug.startsWith('/blog/')) {
+                cleanSlug = slug.replace('/blog/', '')
+            } else if (slug.startsWith('blog/')) {
+                cleanSlug = slug.replace('blog/', '')
+            }
+            return { params: { slug: cleanSlug } }
+        })
+        
+        return { paths, fallback: 'blocking' }
+    } catch (error) {
+        console.error('Error fetching articles for static paths:', error)
+        return { paths: [], fallback: 'blocking' }
+    }
 }
 
 export default ArticlePage
