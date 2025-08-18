@@ -34,19 +34,24 @@ const BlogPage = ({ articles }: IProps): JSX.Element => (
         <section className="blog-pg section-padding pt-0">
             <div className="container">
                 <div className="row justify-content-center">
-                    <div className="col-lg-11">
+                    <div className="col-lg-10">
                         <div className="posts">
-                            {articles.map(({ title, description, publishedAt, tags, canonical, coverImage }) => (
-                                <ArticleCard
-                                    key={title}
-                                    title={title}
-                                    coverImage={coverImage}
-                                    description={description}
-                                    date={publishedAt}
-                                    tags={tags}
-                                    canonical={canonical}
-                                />
-                            ))}
+                            <div className="row">
+                                {articles.map(({ title, description, publishedAt, tags, canonical, coverImage }) => (
+                                    <div key={title} className="col-lg-6 col-md-6 mb-5">
+                                        <div className="article-card-wrapper h-100">
+                                            <ArticleCard
+                                                title={title}
+                                                coverImage={coverImage}
+                                                description={description}
+                                                date={publishedAt}
+                                                tags={tags}
+                                                canonical={canonical}
+                                            />
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

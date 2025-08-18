@@ -1,5 +1,92 @@
 @import "../../public/css/dark.css";
 @import "./fonts.css";
+
+// Blog page improvements
+.blog-pg .article-card-wrapper {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  &:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  }
+  
+  section {
+    margin-bottom: 0;
+    
+    .img {
+      margin-bottom: 20px;
+      
+      img {
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+      }
+    }
+    
+    .content {
+      .row {
+        margin: 0;
+        
+        .col-10 {
+          padding: 0;
+          
+          .date {
+            margin-bottom: 15px;
+          }
+          
+          h4.title {
+            margin-bottom: 15px;
+            line-height: 1.4;
+            
+            a {
+              transition: color 0.3s ease;
+              
+              &:hover {
+                color: #007bff;
+              }
+            }
+          }
+          
+          p {
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Dark theme adjustments
+[data-theme="dark"] .blog-pg .article-card-wrapper {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.05);
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+// Light theme adjustments  
+[data-theme="light"] .blog-pg .article-card-wrapper {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.1);
+  
+  &:hover {
+    background: rgba(0, 0, 0, 0.04);
+  }
+  
+  section .content p {
+    color: rgba(0, 0, 0, 0.7);
+  }
+}
+
 .blog-crv .item {
   display: flex;
   align-items: center;
@@ -57,7 +144,7 @@ button.nb:hover {
 }
 #preloader {
       top: 0;
-    left: 0;;
+    left: 0;
 }
 
 .pace-done #preloader {
