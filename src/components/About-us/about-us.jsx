@@ -28,25 +28,18 @@ const AboutUs = () => {
               <h3 className="color-font">Sobre Mim</h3>
               <h5 className="co-tit mb-15">Arquiteto de Soluções e Dev</h5>
               <p>
-                Sou Arquiteto de Soluções com mais de 10 anos de experiência em desenvolvimento de software, com atuação em bancos e seguradoras.
-                Atuo tanto no desenvolvimento frontend e mobile utilizando Angular, Ionic e React Native quanto no backend com Node, Java e PHP, 
-                e possuo experiência em arquiteturas baseadas em eventos, BFF, serverless, AWS, Azure e CI/CD.
-                Possuo também experiência em liderança técnica e no uso de ferramentas de inteligência artificial.
+                Sou Arquiteto de Soluções com mais de 10 anos de experiência em desenvolvimento de software, com atuação em bancos e seguradoras. Possuo também experiência em IA generativa (genAI) e liderança técnica.
+                Atuei tanto no desenvolvimento frontend e mobile, utilizando Angular, Ionic, React e React Native, quanto no backend com Node, Java e PHP. Tenho experiência em diferentes arquiteturas, 
+                migrações e serviços AWS com Infrastructure as Code (IaC).
               </p>
               <br />
               <p>
-                Na Capco Wipro, atuei em projetos de modernização no Banco Itaú e de iniciativas relacionadas ao Pix no Banco Bradesco. 
-                Na DBServer, atuei em projeto para o Banco Randon.
+                Na Capco Wipro, participei de projetos de modernização no Banco Itaú e de iniciativas relacionadas ao Pix no Banco Bradesco. Na DBServer, atuei em um projeto para o Banco Randon.
+                Atualmente, sou Lead Architect na NTT DATA, atuando como Arquiteto do Mapfre Pay. Também fui o arquiteto do aplicativo Bradesco Seguros, cuidando do desenho de soluções, sistemas e da comunicação com o time de negócios.
               </p>
               <p>
-              Atualmente, sou Lead Architect na NTT DATA, atuando como Arquiteto do Mapfre Pay, 
-              e fui o arquiteto do app Bradesco Seguros, sendo responsável pelo desenho de soluções, sistemas e apoio para os times técnico e de negócio.
-              </p>
-              <br />
-              <p>
-                Também sou o criador do super app fitness{" "}
-                <a href="https://mobifit.app">MobiFit</a> que integra inteligência artificial e conceitos de local-first, serverless e edge functions. 
-                Também sou criador de conteúdo técnico e carreira nas redes sociais.
+                Em projetos pessoais open source, desenvolvi o <a href="https://mobifit.app">MobiFit</a>, um superapp fitness com inteligência artificial que integra conceitos de local-first, serverless e edge functions.
+                Sou também criador de conteúdo sobre tecnologia e carreira nas redes sociais.
               </p>
               <br />
               <p>

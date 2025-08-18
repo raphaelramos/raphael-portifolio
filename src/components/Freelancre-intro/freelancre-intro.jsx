@@ -17,7 +17,7 @@ const FreelancreIntro = () => {
             <div className="cont">
               <h1 className="cd-headline clip" style={{ position: 'relative' }}>
                 <span style={{ position: 'relative', display: 'inline-block' }}>
-                  Sou Raphael, e construo soluções para{" "}
+                  Sou Raphael Ramos, consultor em{" "}
                 </span>
                 <span
                   style={{ 
