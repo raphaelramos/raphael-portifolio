@@ -35,31 +35,15 @@ const Home = ({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const defaultProps = { articles: [], latestBlog: null }
-    
-    if (!process.env.DEVTO_APIKEY) {
-        return { 
-            props: { homePageArticles: defaultProps },
-            revalidate: CACHE_REVALIDATE_TIME,
-        }
-    }
-
     try {
         const homePageArticles = await getHomePageArticles()
-        
-        // Ensure latestBlog is null if undefined to prevent serialization errors
-        const sanitizedArticles = {
-            articles: homePageArticles.articles || [],
-            latestBlog: homePageArticles.latestBlog || null
-        }
-        
         return { 
-            props: { homePageArticles: sanitizedArticles },
+            props: { homePageArticles },
             revalidate: CACHE_REVALIDATE_TIME,
         }
     } catch (error) {
-        console.error('Error in getStaticProps:', error)
-        // Return default props if there's any error
+        console.error('Error fetching homepage articles:', error)
+        const defaultProps = { articles: [], latestBlog: null }
         return { 
             props: { homePageArticles: defaultProps },
             revalidate: CACHE_REVALIDATE_TIME,

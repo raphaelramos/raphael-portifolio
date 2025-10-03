@@ -1,5 +1,4 @@
 
-import axios, { AxiosResponse } from 'axios'
 import { unstable_cache } from 'next/cache'
 import IArticle from '../interfaces/IArticle'
 import IHomePageArticles from '../interfaces/IHomePageArticles'
@@ -51,24 +50,44 @@ const blogFilter = (article: IArticle): boolean => article.canonical.startsWith(
 const fetchArticlesFromAPI = async (per_page = 1000): Promise<IArticle[]> => {
     try {
         const params = { username, per_page: per_page }
-        const headers = process.env.DEVTO_APIKEY ? { 'api-key': process.env.DEVTO_APIKEY } : {}
         
-        const { data }: AxiosResponse = await axios.get(`https://dev.to/api/articles/me`, {
-            params,
-            headers,
-            timeout: 15000, // Increased timeout to 15 seconds
+        // Use fetch instead of axios for better Next.js compatibility
+        const url = new URL('https://dev.to/api/articles/me')
+        Object.entries(params).forEach(([key, value]) => {
+            url.searchParams.append(key, String(value))
         })
         
+        // Build headers properly for TypeScript
+        const headers: HeadersInit = {
+            'Content-Type': 'application/json',
+        }
+        
+        if (process.env.DEVTO_APIKEY) {
+            headers['api-key'] = process.env.DEVTO_APIKEY
+        }
+        
+        const response = await fetch(url.toString(), {
+            headers,
+            // Enable caching for better performance on Vercel
+            cache: 'force-cache',
+            // Increase timeout for Vercel deployment
+            next: { 
+                revalidate: CACHE_REVALIDATE_TIME,
+                tags: [DEVTO_CACHE_TAG] 
+            }
+        })
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        
+        const data = await response.json()
         return data.map(convertDevtoResponseToArticle)
     } catch (error) {
         console.error('Failed to fetch articles from Dev.to API:', error)
         
         // If it's a rate limiting error (429) or any other error, return empty array
         // The cache will handle fallbacks and the build won't fail
-        if (axios.isAxiosError(error) && error.response?.status === 429) {
-            console.warn('Dev.to API rate limit reached, returning empty array for build to continue')
-        }
-        
         return []
     }
 }
@@ -115,11 +134,11 @@ export const getHomePageArticles = async (): Promise<IHomePageArticles> => {
     try {
         const articles = await getCachedArticles()
         const blogArticles = articles.filter(blogFilter)
-        const latestBlog = blogArticles.length > 0 ? blogArticles[0] : null
+        const [latestBlog] = blogArticles
         
         return {
             articles: articles.slice(0, 4),
-            latestBlog
+            latestBlog: latestBlog || null
         }
     } catch (error) {
         console.error('Error fetching homepage articles:', error)
