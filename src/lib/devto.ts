@@ -135,9 +135,9 @@ export const getHomePageArticles = async (): Promise<IHomePageArticles> => {
         const articles = await getCachedArticles()
         const blogArticles = articles.filter(blogFilter)
         const [latestBlog] = blogArticles
-        
+
         return {
-            articles: articles.slice(0, 4),
+            articles: blogArticles.slice(0, 4),
             latestBlog: latestBlog || null
         }
     } catch (error) {
