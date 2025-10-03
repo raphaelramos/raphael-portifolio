@@ -1,5 +1,4 @@
 
-import { unstable_cache } from 'next/cache'
 import IArticle from '../interfaces/IArticle'
 import IHomePageArticles from '../interfaces/IHomePageArticles'
 import { convertMarkdownToHtml, sanitizeDevToMarkdown } from './markdown'
@@ -68,9 +67,7 @@ const fetchArticlesFromAPI = async (per_page = 1000): Promise<IArticle[]> => {
         
         const response = await fetch(url.toString(), {
             headers,
-            // Enable caching for better performance on Vercel
             cache: 'force-cache',
-            // Increase timeout for Vercel deployment
             next: { 
                 revalidate: CACHE_REVALIDATE_TIME,
                 tags: [DEVTO_CACHE_TAG] 
@@ -92,28 +89,10 @@ const fetchArticlesFromAPI = async (per_page = 1000): Promise<IArticle[]> => {
     }
 }
 
-// Single cached function to fetch all articles from Dev.to API
-const getCachedArticles = unstable_cache(
-    async (): Promise<IArticle[]> => {
-        try {
-            return await fetchArticlesFromAPI()
-        } catch (error) {
-            console.error('Error in getCachedArticles:', error)
-            return []
-        }
-    },
-    ['devto-articles'],
-    {
-        revalidate: CACHE_REVALIDATE_TIME,
-        tags: [DEVTO_CACHE_TAG],
-    }
-)
-
 // Get all users articles from Dev.to with Next.js cache
 export const getAllArticles = async (per_page = 1000): Promise<IArticle[]> => {
     try {
-        const articles = await getCachedArticles()
-        return per_page === 1000 ? articles : articles.slice(0, per_page)
+        return await fetchArticlesFromAPI(per_page)
     } catch (error) {
         console.error('Error fetching all articles:', error)
         return []
@@ -122,7 +101,7 @@ export const getAllArticles = async (per_page = 1000): Promise<IArticle[]> => {
 
 export const getAllBlogArticles = async (): Promise<IArticle[]> => {
     try {
-        const articles = await getCachedArticles()
+        const articles = await getAllArticles()
         return articles.filter(blogFilter)
     } catch (error) {
         console.error('Error fetching blog articles:', error)
@@ -132,7 +111,7 @@ export const getAllBlogArticles = async (): Promise<IArticle[]> => {
 
 export const getHomePageArticles = async (): Promise<IHomePageArticles> => {
     try {
-        const articles = await getCachedArticles()
+        const articles = await getAllArticles()
         const blogArticles = articles.filter(blogFilter)
         const [latestBlog] = blogArticles
 
