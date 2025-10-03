@@ -30,7 +30,7 @@ const AboutUs = () => {
               <h3 className="color-font">Sobre Mim</h3>
               <h5 className="co-tit mb-15">Arquiteto de Soluções e Dev</h5>
               <p>
-                Raphael Ramos é Arquiteto de Soluções e software com mais de 10 anos de experiência em desenvolvimento, atuando em bancos e seguradoras,
+                Raphael Ramos é Arquiteto de Soluções e sistemas com mais de 10 anos de experiência em desenvolvimento, atuando em bancos e seguradoras,
                 com destaque em agentes de IA, liderança técnica e soluções multicloud.
               </p>
               <br />
