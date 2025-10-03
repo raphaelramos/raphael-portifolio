@@ -13,15 +13,6 @@ const nextConfig = {
       },
     ],
   },
-  // Optimize for Vercel deployment
-  experimental: {
-    // Enable persistent caching for better performance
-    turbopackPersistentCachingForBuild: true,
-  },
-  // Improve API timeout for external calls
-  env: {
-    DEVTO_TIMEOUT: '15000', // 15 seconds for Dev.to API
-  },
 };
 
 export default nextConfig;

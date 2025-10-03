@@ -1,4 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
+'use client';
+
+ 
 import React from "react";
 import Image from 'next/image'
 import aboutSkillsProgress from "../../common/aboutSkillsProgress";
