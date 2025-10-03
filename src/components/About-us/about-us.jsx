@@ -28,18 +28,22 @@ const AboutUs = () => {
               <h3 className="color-font">Sobre Mim</h3>
               <h5 className="co-tit mb-15">Arquiteto de Soluções e Dev</h5>
               <p>
-                Sou Arquiteto de Soluções com mais de 10 anos de experiência em desenvolvimento de software, com atuação em bancos e seguradoras. Possuo também experiência em IA generativa (genAI) e liderança técnica.
-                Atuei tanto no desenvolvimento frontend e mobile, utilizando Angular, Ionic, React e React Native, quanto no backend com Node, Java e PHP. Tenho experiência em diferentes arquiteturas, 
-                migrações e serviços AWS com Infrastructure as Code (IaC).
+                Raphael Ramos é Arquiteto de Soluções e software com mais de 10 anos de experiência em desenvolvimento, atuando em bancos e seguradoras,
+                com destaque em agentes de IA, liderança técnica e soluções multicloud.
               </p>
               <br />
               <p>
-                Na Capco Wipro, participei de projetos de modernização no Banco Itaú e de iniciativas relacionadas ao Pix no Banco Bradesco. Na DBServer, atuei em um projeto para o Banco Randon.
-                Atualmente, sou Lead Architect na NTT DATA, atuando como Arquiteto do Mapfre Pay. Também fui o arquiteto do aplicativo Bradesco Seguros, cuidando do desenho de soluções, sistemas e da comunicação com o time de negócios.
+                Atuação em integração de sistemas, governança, segurança e definição de soluções técnicas.
+                Participação em consultoria em projetos de PIX no Bradesco, transformação digital no Itaú, crédito na Randon, pagamentos na Mapfre e arquitetura do app no Bradesco Seguros.
+              </p>
+              <br />
+              <p>
+                Experiência avançada em AWS com IaC, migração e várias arquiteturas.
+                Expertise em desenvolvimento fullstack e mobile com Angular, Ionic, React, React Native, Node, Java, Python e PHP.
               </p>
               <p>
-                Em projetos pessoais open source, desenvolvi o <a href="https://mobifit.app">MobiFit</a>, um superapp fitness com inteligência artificial que integra conceitos de local-first, serverless e edge functions.
-                Sou também criador de conteúdo sobre tecnologia e carreira nas redes sociais.
+                Em projeto open source, desenvolvedor do <a href="https://mobifit.app">MobiFit</a>, superapp fitness com agentes IA, local-first e serverless, disponível nas lojas.
+                Também é criador de conteúdo sobre tecnologia e carreira nas redes sociais.
               </p>
               <br />
               <p>
